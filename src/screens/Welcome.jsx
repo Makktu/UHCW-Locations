@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export default function Welcome() {
+export default function Welcome({ message }) {
   return (
     <View>
-      <Text style={styles.welcome}>Welcome!</Text>
+      <Text style={styles.welcome}>{message}</Text>
     </View>
   );
 }

@@ -6,7 +6,7 @@ import Welcome from './src/screens/Welcome';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Welcome />
+      <Welcome message='Welcome, Traveller' />
       <StatusBar style='auto' />
     </View>
   );
