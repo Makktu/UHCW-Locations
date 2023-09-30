@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import React from 'react';
 
-export default function MainButton({ textContent }) {
+export default function MainButton({ textContent, whenPressed }) {
   return (
-    <Pressable>
+    <Pressable onPress={whenPressed}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>{textContent}</Text>
       </View>
