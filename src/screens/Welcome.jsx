@@ -5,14 +5,25 @@ import SearchInput from '../components/SearchInput';
 
 export default function Welcome({ message }) {
   const [searching, setSearching] = useState(false);
-  const [enteredText, setEnteredText] = useState('Search Here');
+  let searchTerm = '';
 
   const searchHandler = () => {
-    setSearching(!searching);
+    if (!searching) {
+      setSearching(true);
+      return;
+    } else if (searching && !searchTerm) {
+      console.log('no search term entered');
+      return;
+    }
+    console.log(searchTerm);
   };
 
-  const enteredTextHandler = (enteredText) => {
-    setEnteredText(enteredText);
+  const cancelHandler = () => {
+    console.log('cancelled!');
+  };
+
+  const inputHandler = (enteredText) => {
+    searchTerm = enteredText;
   };
 
   return (
@@ -20,10 +31,16 @@ export default function Welcome({ message }) {
       <View>
         <Text style={styles.welcome}>{message}</Text>
       </View>
-      <View>{searching ? <SearchInput /> : null}</View>
+      {searching ? (
+        <View style={styles.searchBox}>
+          <SearchInput inputHandler={inputHandler} />
+        </View>
+      ) : null}
       <View style={styles.buttonsContainer}>
         <MainButton whenPressed={searchHandler} textContent='Search' />
-        {searching ? <MainButton textContent='Cancel' /> : null}
+        {searching ? (
+          <MainButton whenPressed={cancelHandler} textContent='Cancel' />
+        ) : null}
       </View>
     </>
   );
