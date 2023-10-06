@@ -8,6 +8,11 @@ export default function SearchInput({ inputHandler }) {
     setEnteredText(enteredText);
     inputHandler(enteredText);
   };
+
+  const inputCancelled = () => {
+    setEnteredText('');
+  };
+
   return (
     <View style={styles.textBox}>
       <TextInput

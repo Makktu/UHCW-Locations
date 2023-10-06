@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import MainButton from '../components/MainButton';
 import SearchInput from '../components/SearchInput';
@@ -19,7 +19,7 @@ export default function Welcome({ message }) {
   };
 
   const cancelHandler = () => {
-    console.log('cancelled!');
+    // setCancelled(true);
   };
 
   const inputHandler = (enteredText) => {
