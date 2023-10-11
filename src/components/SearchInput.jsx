@@ -1,18 +1,7 @@
-import { StyleSheet, View, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, View, TextInput, useColorScheme } from 'react-native';
+import React from 'react';
 
-export default function SearchInput({ inputHandler }) {
-  const [enteredText, setEnteredText] = useState('');
-
-  const enteredTextHandler = (enteredText) => {
-    setEnteredText(enteredText);
-    inputHandler(enteredText);
-  };
-
-  const inputCancelled = () => {
-    setEnteredText('');
-  };
-
+export default function SearchInput({ enteredText, inputHandler }) {
   return (
     <View style={styles.textBox}>
       <TextInput
@@ -21,9 +10,10 @@ export default function SearchInput({ inputHandler }) {
         autoCapitalize='characters'
         autoCorrect={false}
         value={enteredText}
-        onChangeText={enteredTextHandler}
+        onChangeText={inputHandler}
         placeholder='Search'
         placeholderTextColor='black'
+        keyboardAppearance='dark'
       />
     </View>
   );
@@ -31,18 +21,18 @@ export default function SearchInput({ inputHandler }) {
 
 const styles = StyleSheet.create({
   textBox: {
-    height: 100,
-    width: '90%',
+    height: 54,
+    width: '70%',
   },
   textInput: {
-    fontSize: 32,
+    height: 54,
+    fontSize: 26,
     fontFamily: 'interregular',
     backgroundColor: '#eae0e0',
     color: 'whitesmoke',
-    marginVertical: 8,
-    padding: 20,
+    padding: 2,
     color: 'black',
     textAlign: 'center',
-    borderRadius: 20,
+    borderRadius: 4,
   },
 });

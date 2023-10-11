@@ -13,16 +13,17 @@ export default function MainButton({ textContent, whenPressed }) {
 
 const styles = StyleSheet.create({
   button: {
-    width: 100,
-    height: 40,
-    backgroundColor: 'gray',
+    width: 74,
+    height: 54,
+    backgroundColor: '#15b2e1',
     margin: 4,
-    borderRadius: 10,
+    borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonText: {
     fontFamily: 'interregular',
     fontSize: 20,
+    color: 'white',
   },
 });
