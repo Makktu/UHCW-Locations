@@ -9,19 +9,49 @@ export default function DisplayResults({ results }) {
           data={results}
           keyExtractor={(item) => item['Room Num']}
           renderItem={({ item }) => (
-            <View style={styles.resultStyle}>
-              <View style={styles.leftStyle}>
-                <Text style={styles.results}>
-                  {item['Wing'].length > 15
+            <View
+              style={
+                results.length == 1 ? styles.singularStyle : styles.resultStyle
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    results.length == 1 ? styles.singularResult : styles.results
+                  }
+                >
+                  {item['Wing'].length > 14
                     ? item['Wing'].slice(0, 14)
                     : item['Wing']}
                 </Text>
-                <Text style={styles.results}>{item['Department']}</Text>
+                <Text
+                  style={
+                    results.length == 1 ? styles.singularResult : styles.results
+                  }
+                >
+                  {item['Department'].length > 18
+                    ? item['Department'].slice(0, 18)
+                    : item['Department']}
+                </Text>
               </View>
 
-              <View style={styles.rightStyle}>
-                <Text style={styles.results}>{item['Description']}</Text>
-                <Text style={styles.results}>{item['Room Num']}</Text>
+              <View>
+                <Text
+                  style={
+                    results.length == 1 ? styles.singularResult : styles.results
+                  }
+                >
+                  {item['Description'].length > 12 && results.length !== 1
+                    ? item['Description'].slice(0, 12)
+                    : item['Description']}
+                </Text>
+                <Text
+                  style={
+                    results.length == 1 ? styles.singularResult : styles.results
+                  }
+                >
+                  {item['Room Num']}
+                </Text>
               </View>
             </View>
           )}
@@ -39,9 +69,15 @@ const styles = StyleSheet.create({
     width: '100%',
     fontWeight: 'bold',
   },
+  singularResult: {
+    fontSize: 22,
+    color: '#10100f',
+    margin: 2,
+    width: '100%',
+    fontWeight: 'bold',
+  },
   displayArea: {
     padding: 20,
-    // height: '70%',
   },
   resultStyle: {
     borderWidth: 6,
@@ -54,8 +90,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  rightStyle: {
-    color: 'blue',
-    fontWeight: 'bold',
+  singularStyle: {
+    borderWidth: 6,
+    borderColor: '#0de405',
+    borderRadius: 10,
+    marginVertical: '5%',
+    padding: 30,
+    backgroundColor: '#81e596',
+    width: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
 });
