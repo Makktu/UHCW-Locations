@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/static/js/main.d200d42f.js",
+    "static/js/15.3dc9cbb3.js": "/static/js/15.3dc9cbb3.js",
+    "static/media/uhcw-main3.png": "/static/media/uhcw-main3.2a9b4002b92ad59ad4f1.png",
+    "static/media/Inter-Black.otf": "/static/media/Inter-Black.b2a2b192860f79c0b89c.otf",
+    "static/media/Inter-Light.otf": "/static/media/Inter-Light.f70b465fac229d73e982.otf",
+    "static/media/Inter-Regular.otf": "/static/media/Inter-Regular.a416f4674fad5f019461.otf",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "main.d200d42f.js.map": "/static/js/main.d200d42f.js.map",
+    "15.3dc9cbb3.js.map": "/static/js/15.3dc9cbb3.js.map"
+  },
+  "entrypoints": [
+    "static/js/15.3dc9cbb3.js",
+    "static/js/main.d200d42f.js"
+  ]
+}

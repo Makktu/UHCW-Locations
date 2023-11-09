@@ -1,0 +1,16 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "en",
+  "name": "ScratchPadOne",
+  "short_name": "ScratchPadOne",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.makktu.ScratchPadOne"
+    }
+  ],
+  "prefer_related_applications": true
+}
