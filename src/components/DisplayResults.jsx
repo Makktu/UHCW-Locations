@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   displayArea: {
+    flex: 1,
     padding: 20,
   },
   resultStyle: {

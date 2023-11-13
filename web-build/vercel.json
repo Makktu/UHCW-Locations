@@ -6,8 +6,7 @@
   "framework": null,
   "rewrites": [
     {
-      "source": "/:path*",
-      "destination": "/"
+      "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
     }
   ]
 }

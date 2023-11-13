@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  KeyboardAvoidingView,
+} from 'react-native';
 import React, { useState } from 'react';
 import MainButton from '../components/MainButton';
 import SearchInput from '../components/SearchInput';
@@ -11,6 +17,12 @@ export default function Welcome({ message, platform }) {
   const [enteredText, setEnteredText] = useState('');
   const [results, setResults] = useState([]);
   const [outcomeMsg, setOutcomeMsg] = useState('');
+
+  const windowHeight = Dimensions.get('window').height;
+  const windowWidth = Dimensions.get('window').width;
+
+  console.log(windowHeight, windowWidth);
+  console.log(window.width, window.height);
 
   const searchHandler = (theText) => {
     if (!searching) {
@@ -73,13 +85,21 @@ export default function Welcome({ message, platform }) {
             {message}
           </Text>
         </View>
-        <View style={styles.resultsDisplay}>
-          {outcomeMsg ? <Text style={styles.outcome}>{outcomeMsg}</Text> : null}
-          <DisplayResults results={results} />
-        </View>
-        <View style={styles.searchBox}>
-          <SearchInput enteredText={enteredText} inputHandler={inputHandler} />
-          <MainButton whenPressed={cancelHandler} textContent='Clear' />
+        <View style={styles.restOfPage}>
+          <View>
+            {outcomeMsg ? (
+              <Text style={styles.outcome}>{outcomeMsg}</Text>
+            ) : (
+              <DisplayResults results={results} />
+            )}
+          </View>
+          <View style={styles.searchBox}>
+            <SearchInput
+              enteredText={enteredText}
+              inputHandler={inputHandler}
+            />
+            <MainButton whenPressed={cancelHandler} textContent='Clear' />
+          </View>
         </View>
       </View>
     </>
@@ -87,11 +107,17 @@ export default function Welcome({ message, platform }) {
 }
 
 const styles = StyleSheet.create({
-  mainView: {
-    flex: 1,
+  restOfPage: {
+    alignItems: 'center',
+    marginTop: 50,
+    position: 'absolute',
+    bottom: 50,
+    padding: 10,
   },
   inner: {
     flex: 1,
+    height: '100%',
+    width: '100%',
     alignItems: 'center',
   },
   resultsDisplay: {
@@ -117,21 +143,18 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     width: '100%',
-    borderRadius: 12,
     overflow: 'hidden',
+    position: 'absolute',
+    minHeight: 200,
   },
   nonIosContainer: {
     width: '100%',
-    borderRadius: 12,
     overflow: 'hidden',
-    marginTop: 45,
   },
   searchBox: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    bottom: 0,
   },
   outcome: {
     fontSize: 36,
